@@ -16,7 +16,7 @@ html {
 
 body {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-family: var(--ff);
   font-weight: 300;
 }
@@ -25,7 +25,7 @@ body {
 *::before,
 *::after {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
@@ -35,15 +35,15 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   margin-top: 8rem;
 }
 
@@ -56,15 +56,15 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .content figure {
@@ -95,19 +95,20 @@ body {
   max-width: 100%;
   height: auto;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .email-box {
   position: relative;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: 'input button' 'label label' 'error error';
+  grid-template:
+    'input button'
+    'label label'
+    'error error';
 }
 
 .email-box input {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
   grid-area: input;
   border: 1px solid var(--blue-light);
   border-radius: 10rem;
@@ -116,7 +117,8 @@ body {
   outline: none;
 }
 
-.email-box input:focus, .email-box input:active {
+.email-box input:focus,
+.email-box input:active {
   outline: none;
 }
 
@@ -124,7 +126,7 @@ body {
   visibility: visible;
   opacity: 1;
   -webkit-transform: translateY(-450%);
-          transform: translateY(-450%);
+  transform: translateY(-450%);
   left: 0;
   font-size: 1.2rem;
 }
@@ -145,6 +147,26 @@ body {
   opacity: 0;
 }
 
+.email-box input:not(:focus)::-webkit-input-placeholder {
+  -webkit-transition: opacity 2.5s;
+  transition: opacity 2.5s;
+}
+
+.email-box input:not(:focus):-ms-input-placeholder {
+  -webkit-transition: opacity 2.5s;
+  transition: opacity 2.5s;
+}
+
+.email-box input:not(:focus)::-ms-input-placeholder {
+  -webkit-transition: opacity 2.5s;
+  transition: opacity 2.5s;
+}
+
+.email-box input:not(:focus)::placeholder {
+  -webkit-transition: opacity 2.5s;
+  transition: opacity 2.5s;
+}
+
 .email-box ::-webkit-input-placeholder {
   font-family: var(--ff);
   color: inherit;
@@ -155,14 +177,11 @@ body {
 }
 
 .email-box label {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: label;
   position: absolute;
   left: 2rem;
   -webkit-transform: translateY(-180%);
-          transform: translateY(-180%);
+  transform: translateY(-180%);
   font-size: 1.6rem;
   font-family: var(--ff);
   visibility: hidden;
@@ -187,42 +206,43 @@ body {
   color: inherit;
 }
 
-.btn, .btn:active, .btn:link {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
+.btn,
+.btn:active,
+.btn:link {
   grid-area: button;
   padding: 1.5rem 3em;
   border: none;
   border-radius: 10rem;
   color: var(--white);
   background: var(--blue);
+  box-shadow: 0 0.5rem 0.6rem var(--blue-light);
   -webkit-box-shadow: 0 0.5rem 0.6rem var(--blue-light);
-          box-shadow: 0 0.5rem 0.6rem var(--blue-light);
   cursor: -webkit-grab;
   cursor: grab;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.btn:hover, .btn:active:hover, .btn:link:hover {
+.btn:hover,
+.btn:active:hover,
+.btn:link:hover {
+  box-shadow: 0 0.8rem 0.4rem var(--blue-light);
   -webkit-box-shadow: 0 0.8rem 0.4rem var(--blue-light);
-          box-shadow: 0 0.8rem 0.4rem var(--blue-light);
   -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
-.btn:active, .btn:active:active, .btn:link:active {
+.btn:active,
+.btn:active:active,
+.btn:link:active {
   -webkit-transform: translateY(0);
-          transform: translateY(0);
+  transform: translateY(0);
+  box-shadow: 0 0.1rem 0.15rem var(--blue-light);
   -webkit-box-shadow: 0 0.1rem 0.15rem var(--blue-light);
-          box-shadow: 0 0.1rem 0.15rem var(--blue-light);
   background: var(--green);
 }
 
 small {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: error;
   position: absolute;
   top: 100%;
@@ -239,11 +259,11 @@ small {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   gap: 1rem;
   margin-bottom: 2rem;
 }
@@ -259,7 +279,11 @@ small {
 
 .icons svg:hover {
   -webkit-filter: invert(0.6) brightness(60%) hue-rotate(160deg);
-          filter: invert(0.6) brightness(60%) hue-rotate(160deg);
+  filter: invert(0.6) brightness(60%) hue-rotate(160deg);
+}
+
+.icon {
+  list-style: none;
 }
 
 .copyright {
@@ -278,7 +302,7 @@ small {
   color: #3e52a3;
   text-decoration: underline;
   -webkit-text-decoration-color: var(--clr-link);
-          text-decoration-color: var(--clr-link);
+  text-decoration-color: var(--clr-link);
   color: inherit;
   z-index: 0;
 }
@@ -293,9 +317,9 @@ small {
   border-radius: 0.3em;
   background: var(--clr-link);
   -webkit-transform: scale(1, 0.2);
-          transform: scale(1, 0.2);
+  transform: scale(1, 0.2);
   -webkit-transform-origin: 0 95%;
-          transform-origin: 0 95%;
+  transform-origin: 0 95%;
   opacity: 0.3;
   z-index: -1;
   -webkit-transition: -webkit-transform 0.2s ease-in;
@@ -306,12 +330,16 @@ small {
 
 .attribution a:hover:before {
   -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
+  transform: scale(1, 1);
 }
 
 @media (max-width: 500px) {
   .email-box {
-        grid-template-areas: 'input input' 'error error' 'button button' 'label label';
+    grid-template-areas:
+      'input input'
+      'error error'
+      'button button'
+      'label label';
     margin-bottom: 3rem;
   }
   .email-box > * {
@@ -323,7 +351,7 @@ small {
   }
   .email-box.error .btn {
     -webkit-transform: translateY(4rem);
-            transform: translateY(4rem);
+    transform: translateY(4rem);
   }
   .email-box input {
     margin-right: 0;
@@ -343,7 +371,7 @@ small {
     top: 50%;
     left: 2rem;
     -webkit-transform: translate(0, -100%);
-            transform: translate(0, -100%);
+    transform: translate(0, -100%);
   }
   .email-box small {
     text-align: center;

@@ -85,7 +85,7 @@ body {
   position: relative;
 
   display: grid;
-  grid-template-areas:
+  grid-template:
     'input button'
     'label label'
     'error error';
@@ -114,6 +114,10 @@ body {
     &:focus::placeholder {
       opacity: 0;
     }
+
+    &:not(:focus)::placeholder {
+      transition: opacity 2.5s;
+    }
   }
 
   ::-webkit-input-placeholder {
@@ -129,13 +133,11 @@ body {
     position: absolute;
     left: 2rem;
     transform: translateY(-180%);
-   
+
     font-size: 1.6rem;
     font-family: var(--ff);
     visibility: hidden;
     transition: all 0.5s ease-in-out;
-
-    
   }
 
   &.error {
@@ -171,17 +173,20 @@ body {
     color: var(--white);
     background: var(--blue);
     box-shadow: 0 0.5rem 0.6rem var(--blue-light);
+    -webkit-box-shadow: 0 0.5rem 0.6rem var(--blue-light);
     cursor: grab;
     transition: 0.3s;
 
     &:hover {
       box-shadow: 0 0.8rem 0.4rem var(--blue-light);
+      -webkit-box-shadow: 0 0.8rem 0.4rem var(--blue-light);
       transform: translateY(-5px);
     }
 
     &:active {
       transform: translateY(0);
       box-shadow: 0 0.1rem 0.15rem var(--blue-light);
+      -webkit-box-shadow: 0 0.1rem 0.15rem var(--blue-light);
       background: var(--green);
     }
   }
@@ -216,6 +221,10 @@ small {
       filter: invert(0.6) brightness(60%) hue-rotate(160deg);
     }
   }
+}
+
+.icon {
+  list-style: none;
 }
 
 .copyright {
