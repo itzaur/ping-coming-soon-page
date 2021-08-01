@@ -173,20 +173,20 @@ body {
     color: var(--white);
     background: var(--blue);
     box-shadow: 0 0.5rem 0.6rem var(--blue-light);
-    -webkit-box-shadow: 0 0.5rem 0.6rem var(--blue-light);
+
     cursor: grab;
     transition: 0.3s;
 
     &:hover {
       box-shadow: 0 0.8rem 0.4rem var(--blue-light);
-      -webkit-box-shadow: 0 0.8rem 0.4rem var(--blue-light);
+
       transform: translateY(-5px);
     }
 
     &:active {
       transform: translateY(0);
       box-shadow: 0 0.1rem 0.15rem var(--blue-light);
-      -webkit-box-shadow: 0 0.1rem 0.15rem var(--blue-light);
+
       background: var(--green);
     }
   }
@@ -269,7 +269,7 @@ small {
 
 @media (max-width: 500px) {
   .email-box {
-    grid-template-areas:
+    grid-template:
       'input input'
       'error error'
       'button button'
